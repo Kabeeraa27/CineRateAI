@@ -1,0 +1,19 @@
+joblib
+numpy
+pandas
+matplotlib
+seaborn
+Flask
+Flask-Cors
+seaborn
+dvc
+notebook
+scipy
+pyYAML
+types-PyYAML
+tqdm
+requests
+python-box==6.0.2
+ensure==1.0.2
+-e .
+
