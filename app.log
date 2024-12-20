@@ -1,0 +1,40 @@
+2024-12-21 03:56:37,170 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 03:56:37,171 - utils.logger - INFO - Created folder: artifacts
+2024-12-21 03:56:37,171 - utils.logger - INFO - Downloading data from https://workdrive.zohoexternal.com/external/544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:56:38,256 - utils.logger - INFO - File downloaded and saved as artifacts\544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:56:38,543 - utils.logger - ERROR - Error in data ingestion: Error tokenizing data. C error: Expected 5 fields in line 107, saw 6
+
+2024-12-21 03:56:38,543 - utils.logger - ERROR - An error occurred during the process: Error tokenizing data. C error: Expected 5 fields in line 107, saw 6
+
+2024-12-21 03:58:31,261 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 03:58:31,261 - utils.logger - INFO - Downloading data from https://workdrive.zohoexternal.com/external/544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:58:32,360 - utils.logger - INFO - Response status code: 200
+2024-12-21 03:58:32,362 - utils.logger - INFO - File downloaded and saved as artifacts\544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:58:32,363 - utils.logger - ERROR - Downloaded file is not a CSV: artifacts\544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:58:32,363 - utils.logger - ERROR - Error in data ingestion: Downloaded file is not a CSV
+2024-12-21 03:58:32,363 - utils.logger - ERROR - An error occurred during the process: Downloaded file is not a CSV
+2024-12-21 03:59:43,936 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 03:59:43,936 - utils.logger - ERROR - File does not exist: https://workdrive.zohoexternal.com/external/544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:59:43,937 - utils.logger - ERROR - Error in data ingestion: File does not exist: https://workdrive.zohoexternal.com/external/544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 03:59:43,938 - utils.logger - ERROR - An error occurred during the process: File does not exist: https://workdrive.zohoexternal.com/external/544c9e31d9c0a3571cb4010256ba779e0c02dba5f2a0496d15656eb5f119d553
+2024-12-21 04:00:51,289 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 04:00:51,290 - utils.logger - ERROR - Unsupported file type: C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:00:51,290 - utils.logger - ERROR - Error in data ingestion: Unsupported file type: C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:00:51,290 - utils.logger - ERROR - An error occurred during the process: Unsupported file type: C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:01:55,916 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 04:01:56,803 - utils.logger - INFO - Data successfully ingested from C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:01:56,804 - utils.logger - INFO - Preparing base model...
+2024-12-21 04:01:56,805 - utils.logger - ERROR - An error occurred during the process: prepare_base_model() missing 1 required positional argument: 'data'
+2024-12-21 04:02:16,291 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 04:02:17,137 - utils.logger - INFO - Data successfully ingested from C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:02:17,138 - utils.logger - INFO - Preparing base model...
+2024-12-21 04:02:17,138 - utils.logger - ERROR - An error occurred during the process: prepare_base_model() missing 1 required positional argument: 'data'
+2024-12-21 04:03:27,042 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 04:03:27,878 - utils.logger - INFO - Data successfully ingested from C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:03:27,879 - utils.logger - INFO - Preparing base model...
+2024-12-21 04:03:27,880 - utils.logger - ERROR - An error occurred during the process: prepare_base_model() missing 1 required positional argument: 'data'
+2024-12-21 04:04:18,466 - utils.logger - INFO - Starting data ingestion process...
+2024-12-21 04:04:18,499 - utils.logger - INFO - File copied to artifacts folder: C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:04:19,418 - utils.logger - INFO - Data successfully ingested from C:/DATASETS/Rotten_Tomatoes_Movies3.xls
+2024-12-21 04:04:19,418 - utils.logger - INFO - Preparing base model...
+2024-12-21 04:04:19,418 - utils.logger - ERROR - An error occurred during the process: prepare_base_model() missing 1 required positional argument: 'data'
