@@ -10,3 +10,5 @@ def train_model(X_train, y_train):
     except Exception as e:
         logger.error(f"Error in model training: {e}")
         raise e
+
+

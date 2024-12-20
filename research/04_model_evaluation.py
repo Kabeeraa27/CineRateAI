@@ -14,3 +14,5 @@ def evaluate_model(model, X_test, y_test):
     except Exception as e:
         logger.error(f"Error in model evaluation: {e}")
         raise e
+    
+    

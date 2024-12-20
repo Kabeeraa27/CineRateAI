@@ -22,3 +22,5 @@ def data_transformation(data, target_column):
     except Exception as e:
         logger.error(f"Error in data transformation: {e}")
         raise e
+
+

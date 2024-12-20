@@ -9,3 +9,5 @@ def data_ingestion(file_path):
     except Exception as e:
         logger.error(f"Error in data ingestion: {e}")
         raise e
+
+
