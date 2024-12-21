@@ -1,83 +1,69 @@
 import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from category_encoders import TargetEncoder
+import os
 from sklearn.impute import SimpleImputer
-from utils.logger import logger
+from category_encoders import TargetEncoder
+from utils.logger import get_logger
 
-def feature_type(data):
-    # Separate columns by data type
-    numerical_features = data.select_dtypes(include=[np.number]).columns.tolist()
-    categorical_features = data.select_dtypes(include=['object', 'category']).columns.tolist()
-    datetime_features = data.select_dtypes(include=[np.datetime64]).columns.tolist()
+logger = get_logger(__name__)
 
-    print(f"Numerical Columns ({len(numerical_features)}): \n", numerical_features)
-    print()
-    print(f"Categorical Columns ({len(categorical_features)}): \n", categorical_features)
-    print()
-    print(f"Datetime Columns ({len(datetime_features)}): \n", datetime_features)
-    print()
-
-def prepare_base_model(data, target_column='audience_rating'):
+def prepare_base_model(input_file, artifacts_folder):
+    logger.info("Starting data preparation...")
     try:
-        logger.info("Preparing base model for prediction...")
+        data = pd.read_csv(input_file)
 
-        # Separate features and target
-        features = data.drop(target_column, axis=1)
-        target = data[target_column]
+        # Fixing ratings
+        rating_correction_map = {
+            'PG-13)': 'PG-13',
+            'NC17': 'NC-17',
+            'R)': 'R'
+        }
+        data['rating'] = data['rating'].replace(rating_correction_map)
 
-        # Impute missing values
-        numerical_features = features.select_dtypes(include=[np.number]).columns.tolist()
-        categorical_features = features.select_dtypes(include=['object', 'category']).columns.tolist()
-        
+        # Convert date columns to datetime format
+        date_columns = ['in_theaters_date', 'on_streaming_date']
+        for col in date_columns:
+            if col in data.columns:
+                data[col] = pd.to_datetime(data[col], errors='coerce')
+
+        # Extract year, month, day from 'in_theaters_date'
+        if 'in_theaters_date' in data.columns:
+            data['in_theaters_year'] = data['in_theaters_date'].dt.year
+            data['in_theaters_month'] = data['in_theaters_date'].dt.month
+            data['in_theaters_day'] = data['in_theaters_date'].dt.day
+
+        # Calculate days_to_streaming
+        if 'on_streaming_date' in data.columns and 'in_theaters_date' in data.columns:
+            data['days_to_streaming'] = (data['on_streaming_date'] - data['in_theaters_date']).dt.days
+
+        # Drop date columns
+        data = data.drop(columns=['in_theaters_date', 'on_streaming_date'], errors='ignore')
+
+        # Imputation for missing values
+        numerical_features = data.select_dtypes(include=['number']).columns
+        categorical_features = data.select_dtypes(include=['object']).columns
         num_imputer = SimpleImputer(strategy='mean')
         cat_imputer = SimpleImputer(strategy='most_frequent')
 
-        features[numerical_features] = num_imputer.fit_transform(features[numerical_features])
-        features[categorical_features] = cat_imputer.fit_transform(features[categorical_features])
+        # Impute missing values
+        data[numerical_features] = num_imputer.fit_transform(data[numerical_features])
+        data[categorical_features] = cat_imputer.fit_transform(data[categorical_features])
 
-        # Encode categorical features
-        features = feature_encoding(features)
+        # Apply target encoding for features
+        target_encoder1 = TargetEncoder(cols=['cast', 'movie_info', 'movie_title'], smoothing=1.0)
+        data[['cast', 'movie_info', 'movie_title']] = target_encoder1.fit_transform(data[['cast', 'movie_info', 'movie_title']], data['audience_rating'])
 
-        # Ensure that all features are numeric
-        features = features.select_dtypes(include=[np.number])
+        # Apply custom target encoding for high-cardinality features
+        target_encoder2 = TargetEncoder(cols=['genre', 'directors', 'writers', 'studio_name'], smoothing=5.0)
+        data[['genre', 'directors', 'writers', 'studio_name']] = target_encoder2.fit_transform(data[['genre', 'directors', 'writers', 'studio_name']], data['audience_rating'])
 
-        # Split data into train and test sets
-        X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+        # One-Hot Encoding for categorical features
+        data = pd.get_dummies(data, columns=['rating', 'tomatometer_status'], dtype=int)
 
-        return X_train, X_test, y_train, y_test
-        
+        # Save cleaned data
+        output_file = os.path.join(artifacts_folder, "cleaned_data.csv")
+        data.to_csv(output_file, index=False)
+        logger.info(f"Cleaned data saved to {output_file}")
     except Exception as e:
-        logger.error(f"Error in preparing the base model: {e}")
-        raise e
+        logger.error(f"Error in data preparation: {e}")
+        raise
 
-
-def feature_encoding(data):
-    try:
-        logger.info("Performing feature encoding...")
-
-        # Check if 'audience_rating' exists in the data
-        if 'audience_rating' not in data.columns:
-            raise ValueError("'audience_rating' column is missing from the data")
-
-        # Define features to apply different encoding methods
-        te_features = ['cast', 'movie_info', 'movie_title']
-        high_cardinal_features = ['genre', 'directors', 'writers', 'studio_name']
-        ohe_features = ['rating', 'tomatometer_status']
-
-        # Step 1: Applying Target Encoding to some features using category_encoders
-        target_encoder1 = TargetEncoder(cols=te_features, smoothing=1.0)
-        data[te_features] = target_encoder1.fit_transform(data[te_features], data['audience_rating'])
-
-        # Step 2: Applying Custom Target Encoding to high-cardinality features
-        target_encoder2 = TargetEncoder(cols=high_cardinal_features, smoothing=5.0)
-        data[high_cardinal_features] = target_encoder2.fit_transform(data[high_cardinal_features], data['audience_rating'])
-
-        # Step 3: Applying One-Hot Encoding to categorical features with low cardinality
-        data = pd.get_dummies(data, columns=ohe_features, dtype=int)
-
-        return data
-
-    except Exception as e:
-        logger.error(f"Error in feature encoding: {e}")
-        raise e
