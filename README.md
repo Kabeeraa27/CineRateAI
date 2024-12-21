@@ -9,8 +9,8 @@ This project aims to predict movie ratings using a RandomForestRegressor model. 
 Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/movie-rating-prediction.git
-cd movie-rating-prediction
+git clone https://github.com/Kabeeeraa27/CineRateAI.git
+cd CineRateAI
 ```
 
 ### 2. **Set Up the Environment**
@@ -21,19 +21,6 @@ Create a Python virtual environment to manage the dependencies.
 python -m venv movie-env
 ```
 
-Activate the virtual environment:
-
-- On Windows:
-
-    ```bash
-    movie-env\Scriptsctivate
-    ```
-
-- On macOS/Linux:
-
-    ```bash
-    source movie-env/bin/activate
-    ```
 
 ### 3. **Install Dependencies**
 
@@ -43,27 +30,31 @@ Install the required dependencies using `pip`.
 pip install -r requirements.txt
 ```
 
-The `requirements.txt` file should include all necessary libraries like `pandas`, `scikit-learn`, `flask`, etc.
-
 ### 4. **Prepare the Dataset**
 
 Ensure that you have the dataset (e.g., `movies.csv`) in the `data/` directory. You can modify the path or name in the script if necessary.
 
 ### 5. **Run the Application**
 
-First, run the following command to generate the pickle files:
+1. Open the project in Terminal
+
+2. run the following command to generate the pickle files:
 
 ```bash
 python main.py
 ```
 
-Run the Flask application to start the web app and model prediction service.
+3. Run the Flask application to start the web app and model prediction service.
 
 ```bash
 python app.py
 ```
 
 This will start a local development server at `http://127.0.0.1:5000/`.
+
+OR 
+
+1. Run PIPELINE.ipynb for a complete flow [Jupyter format]
 
 ### 6. **Access the Model Predictions**
 
