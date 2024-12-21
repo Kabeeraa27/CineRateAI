@@ -33,16 +33,15 @@ def make_predictions(model_file, input_data_file, artifacts_folder):
         # Select only numeric columns
         input_data = input_data.select_dtypes(include=['number'])
 
-        # Ensure no target column (audience_rating) is in the input data
         if 'audience_rating' in input_data.columns:
             input_data = input_data.drop(columns=['audience_rating'])
 
-        # Align the input data columns with the feature names used in training
+        # Align the input data columns with the feature names
         missing_cols = set(feature_names) - set(input_data.columns)
         for col in missing_cols:
-            input_data[col] = 0  # Add missing columns with value 0
+            input_data[col] = 0  
 
-        input_data = input_data[feature_names]  # Reorder columns to match the model
+        input_data = input_data[feature_names]  # Reorder columns
 
         # Make predictions
         predictions = model.predict(input_data)

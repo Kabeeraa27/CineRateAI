@@ -29,4 +29,17 @@ setuptools.setup(
     },
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
+    install_requires=[  # Specify your dependencies here
+        "flask",  # Example dependency, replace with actual ones
+        "joblib",
+        "scikit-learn",
+        "pandas",
+        "numpy",
+    ],
+    classifiers=[  # Add classifiers to categorize your project
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires=">=3.6",  # Minimum Python version requirement
 )
