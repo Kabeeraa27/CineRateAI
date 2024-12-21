@@ -1,45 +1,120 @@
 # CineRateAI
 
-This repository contains a machine learning model designed to predict movie ratings based on various features, such as movie title, rating, cast, and other movie-related information. The model uses a Random Forest Regressor and achieves an impressive accuracy of **99.7%**.
+This project aims to predict movie ratings using a RandomForestRegressor model. The project includes data preprocessing steps such as target encoding and one-hot encoding with additive smoothing on several features. The model achieves a high accuracy of **99.7%**.
 
-## Data Preprocessing
+## Steps to Run the Project
 
-### 1. **Target Encoding and One-Hot Encoding**
-To handle categorical variables, two encoding techniques were applied to the dataset:
+### 1. **Clone the Repository**
 
-- **Target Encoding**: Applied to categorical features where the target variable (rating) was encoded based on the mean target value for each category.
-- **One-Hot Encoding**: Applied to categorical features to convert them into binary columns, allowing the model to learn from categorical data effectively.
+Clone the repository to your local machine.
 
-### 2. **Additive Smoothing**
-Additive smoothing was applied on the target encoding step to avoid zero probabilities for categories that did not appear in the training data. This ensures smoother results, especially when working with smaller datasets.
+```bash
+git clone https://github.com/your-username/movie-rating-prediction.git
+cd movie-rating-prediction
+```
 
-### 3. **Features Processed**
-The following features were processed:
-- `movie_title`
-- `movie_info`
-- `rating`
-- `cast`
-- `tomatometer_status`
+### 2. **Set Up the Environment**
 
-These features were transformed using the mentioned encoding techniques to prepare them for model training.
+Create a Python virtual environment to manage the dependencies.
 
-## Model
+```bash
+python -m venv movie-env
+```
 
-### **Random Forest Regressor**
-- A Random Forest Regressor was used as the model to predict movie ratings based on the features.
-- **Best Accuracy**: The model achieved an accuracy of **99.7%**, making it highly reliable for predicting ratings.
+Activate the virtual environment:
 
-## Requirements
+- On Windows:
 
-- Python 3.x
-- `pandas` for data manipulation
-- `numpy` for numerical operations
-- `scikit-learn` for model building and evaluation
-- `joblib` for saving and loading models
+    ```bash
+    movie-env\Scriptsctivate
+    ```
 
-## Installation
+- On macOS/Linux:
 
-To install the required libraries, use the following:
+    ```bash
+    source movie-env/bin/activate
+    ```
+
+### 3. **Install Dependencies**
+
+Install the required dependencies using `pip`.
 
 ```bash
 pip install -r requirements.txt
+```
+
+The `requirements.txt` file should include all necessary libraries like `pandas`, `scikit-learn`, `flask`, etc.
+
+### 4. **Prepare the Dataset**
+
+Ensure that you have the dataset (e.g., `movies.csv`) in the `data/` directory. You can modify the path or name in the script if necessary.
+
+### 5. **Run the Application**
+
+First, run the following command to generate the pickle files:
+
+```bash
+python main.py
+```
+
+Run the Flask application to start the web app and model prediction service.
+
+```bash
+python app.py
+```
+
+This will start a local development server at `http://127.0.0.1:5000/`.
+
+### 6. **Access the Model Predictions**
+
+- Open a browser and go to `http://127.0.0.1:5000/`.
+- Input the relevant movie details (e.g., movie title, rating, cast, etc.).
+- The model will predict the movie rating and display it on the page.
+
+### 7. **Evaluate the Model**
+
+To evaluate the model, use the following metrics:
+
+- **R² Score (Coefficient of Determination)**: Measures how well the model explains the variance in the target variable.
+
+    ```python
+    from sklearn.metrics import r2_score
+
+    y_pred = best_model.predict(X_test)
+    r2 = r2_score(y_test, y_pred)
+    print(f'R² of the best model: {r2:.2f}')
+    ```
+
+- **Mean Absolute Error (MAE)**: Measures the average absolute difference between predicted and actual values.
+
+    ```python
+    from sklearn.metrics import mean_absolute_error
+
+    mae = mean_absolute_error(y_test, y_pred)
+    print(f'Mean Absolute Error: {mae}')
+    ```
+
+- **Mean Squared Error (MSE)**: Measures the average of the squared differences between predicted and actual values.
+
+    ```python
+    from sklearn.metrics import mean_squared_error
+
+    mse = mean_squared_error(y_test, y_pred)
+    print(f'Mean Squared Error: {mse}')
+    ```
+
+### 8. **Suppressing Warnings**
+
+If you encounter warnings related to `joblib` or `loky` (e.g., about physical cores not being found), you can suppress them by setting the environment variable `LOKY_MAX_CPU_COUNT`.
+
+```bash
+set LOKY_MAX_CPU_COUNT=4  # Adjust based on your system
+```
+
+### 9. **Contributing**
+
+Feel free to contribute to this project by opening issues or submitting pull requests. Make sure to follow the guidelines for adding new features or bug fixes.
+
+### 10. **License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
