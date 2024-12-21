@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import shutil
+import requests
 from utils.logger import logger
 
 def data_ingestion(file_path, folder_path='artifacts'):
@@ -17,7 +18,6 @@ def data_ingestion(file_path, folder_path='artifacts'):
             logger.info(f"Downloading data from {file_path}")
             
             # Download the file using requests
-            import requests
             response = requests.get(file_path)
             response.raise_for_status()  # Raise an exception for HTTP errors
             
