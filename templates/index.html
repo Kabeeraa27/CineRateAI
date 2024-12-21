@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Rating Prediction</title>
+    <style>
+        /* Apply a background image of cinema curtain */
+        body {
+            background-image: url('https://www.wallpapertip.com/wmimgs/3-3962_cinema-curtain.jpg'); /* Replace with online cinema curtain image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Container for the form */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            min-height: 80%; /* Ensure form takes up at least 80% of the vertical space */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            background-color: #ffcc00;
+            color: black;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff9900;
+        }
+
+        .prediction {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .guiding-text {
+            font-size: 1em;
+            color: #f0f0f0;
+            margin-top: 10px;
+        }
+
+        .guiding-text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .guiding-text li {
+            margin: 5px 0;
+        }
+
+        /* Responsive design to adjust form layout */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+                width: 90%;
+                min-height: 70%; /* Allow more vertical space on smaller screens */
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            label {
+                font-size: 1em;
+            }
+
+            input, select, textarea {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .guiding-text ul {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Movie Rating Prediction</h1>
+        <form method="POST">
+            <label for="movie_title">Movie Title:</label>
+            <input type="text" id="movie_title" name="movie_title" required placeholder="Enter the movie title">
+            
+            <label for="movie_info">Movie Info:</label>
+            <textarea id="movie_info" name="movie_info" required placeholder="Provide some details about the movie (e.g., genre, plot, etc.)"></textarea>
+            
+            <label for="critics_consensus">Critics Consensus (optional):</label>
+            <textarea id="critics_consensus" name="critics_consensus" placeholder="If available, provide a critics consensus"></textarea>
+
+            <label for="rating">Rating (e.g., PG, R):</label>
+            <input type="text" id="rating" name="rating" required placeholder="Enter the movie's rating (e.g., PG, R)">
+            
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" placeholder="Enter the genre(s), separated by commas">
+            
+            <label for="directors">Directors (optional):</label>
+            <input type="text" id="directors" name="directors" placeholder="Enter the director(s), separated by commas">
+            
+            <label for="writers">Writers (optional):</label>
+            <input type="text" id="writers" name="writers" placeholder="Enter the writer(s), separated by commas">
+            
+            <label for="cast">Cast:</label>
+            <input type="text" id="cast" name="cast" required placeholder="Enter the main cast, separated by commas">
+            
+            <label for="in_theaters_date">In Theaters Date:</label>
+            <input type="date" id="in_theaters_date" name="in_theaters_date">
+            
+            <label for="on_streaming_date">On Streaming Date (optional):</label>
+            <input type="date" id="on_streaming_date" name="on_streaming_date">
+            
+            <label for="runtime_in_minutes">Runtime (in minutes):</label>
+            <input type="number" id="runtime_in_minutes" name="runtime_in_minutes" required placeholder="Enter the runtime in minutes">
+            
+            <label for="studio_name">Studio Name (optional):</label>
+            <input type="text" id="studio_name" name="studio_name" placeholder="Enter the studio name">
+
+            <label for="tomatometer_status">Tomatometer Status (optional):</label>
+            <input type="text" id="tomatometer_status" name="tomatometer_status" placeholder="Enter the Tomatometer status (e.g., Certified Fresh)">
+            
+            <label for="tomatometer_rating">Tomatometer Rating (optional):</label>
+            <input type="number" id="tomatometer_rating" name="tomatometer_rating" placeholder="Enter Tomatometer rating">
+            
+            <label for="tomatometer_count">Tomatometer Count (optional):</label>
+            <input type="number" id="tomatometer_count" name="tomatometer_count" placeholder="Enter the number of Tomatometer reviews">
+            
+            <input type="submit" value="Predict Audience Rating">
+        </form>
+
+        <div class="guiding-text">
+            <h3>Guiding Values:</h3>
+            <ul>
+                <li><strong>Rating:</strong> Choose values like 'PG', 'R', 'PG-13', etc.</li>
+                <li><strong>Genre:</strong> Example: Action, Drama, Comedy, Thriller</li>
+                <li><strong>Tomatometer Rating:</strong> Enter the numeric rating (e.g., 85 for 85%)</li>
+                <li><strong>Tomatometer Status:</strong> Choose 'Certified Fresh', 'Rotten', or leave empty</li>
+                <li><strong>Runtime:</strong> Enter the movie's runtime in minutes (e.g., 120)</li>
+            </ul>
+        </div>
+        
+        {% if prediction is not none %}
+            <div class="prediction">
+                <p>Predicted Audience Rating: {{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

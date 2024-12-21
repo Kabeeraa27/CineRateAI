@@ -1,123 +1,45 @@
-2024-12-21 20:35:01,549 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:35:02,923 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:35:02,927 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:35:03,344 - research.prepare_base_model_02 - ERROR - Error in data preparation: name 'os' is not defined
-2024-12-21 20:35:03,344 - __main__ - ERROR - Pipeline execution failed: name 'os' is not defined
-2024-12-21 20:36:20,012 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:36:21,284 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:36:21,286 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:36:22,094 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:36:22,100 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:36:22,395 - research.model_training_03 - ERROR - Error in model training: name 'X' is not defined
-2024-12-21 20:36:22,396 - __main__ - ERROR - Pipeline execution failed: name 'X' is not defined
-2024-12-21 20:37:40,854 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:37:42,286 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:37:42,289 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:37:43,217 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:37:43,225 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:37:43,579 - research.model_training_03 - ERROR - Error in model training: name 'Lasso' is not defined
-2024-12-21 20:37:43,579 - __main__ - ERROR - Pipeline execution failed: name 'Lasso' is not defined
-2024-12-21 20:38:12,558 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:38:13,849 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:38:13,851 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:38:14,733 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:38:14,740 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:38:15,079 - research.model_training_03 - ERROR - Error in model training: name 'Pipeline' is not defined
-2024-12-21 20:38:15,079 - __main__ - ERROR - Pipeline execution failed: name 'Pipeline' is not defined
-2024-12-21 20:38:35,726 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:38:37,132 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:38:37,135 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:38:37,999 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:38:38,005 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:38:38,293 - research.model_training_03 - ERROR - Error in model training: name 'StandardScaler' is not defined
-2024-12-21 20:38:38,293 - __main__ - ERROR - Pipeline execution failed: name 'StandardScaler' is not defined
-2024-12-21 20:38:59,680 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:39:00,967 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:39:00,969 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:39:01,750 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:39:01,757 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO - LinearRegression Metrics:
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO -   MSE: 227.84284697998015
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO -   RMSE: 15.094464117019198
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO -   MAE: 12.084517899819124
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO -   R²: 0.4442648527575478
-2024-12-21 20:39:02,069 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO - RidgeRegression Metrics:
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO -   MSE: 227.84232873832545
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO -   RMSE: 15.09444695039621
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO -   MAE: 12.084613870601585
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO -   R²: 0.4442661168090908
-2024-12-21 20:39:02,074 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO - LassoRegression Metrics:
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO -   MSE: 227.93819436191714
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO -   RMSE: 15.097622142639453
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO -   MAE: 12.098988349702193
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO -   R²: 0.44403228942697903
-2024-12-21 20:39:02,092 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:02,150 - research.model_training_03 - INFO - DecisionTreeRegressor Metrics:
-2024-12-21 20:39:02,150 - research.model_training_03 - INFO -   MSE: 405.8232036613236
-2024-12-21 20:39:02,150 - research.model_training_03 - INFO -   RMSE: 20.14505407442044
-2024-12-21 20:39:02,150 - research.model_training_03 - INFO -   MAE: 15.615207647253921
-2024-12-21 20:39:02,150 - research.model_training_03 - INFO -   R²: 0.010150106397915692
-2024-12-21 20:39:02,158 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:05,418 - research.model_training_03 - INFO - RandomForestRegressor Metrics:
-2024-12-21 20:39:05,419 - research.model_training_03 - INFO -   MSE: 265.2448226955619
-2024-12-21 20:39:05,419 - research.model_training_03 - INFO -   RMSE: 16.286338529441228
-2024-12-21 20:39:05,419 - research.model_training_03 - INFO -   MAE: 12.745319865633848
-2024-12-21 20:39:05,419 - research.model_training_03 - INFO -   R²: 0.3530370931110761
-2024-12-21 20:39:05,419 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO - GradientBoostingRegressor Metrics:
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO -   MSE: 219.03816193587255
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO -   RMSE: 14.799937903108667
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO -   MAE: 11.804352329221333
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO -   R²: 0.4657405014525472
-2024-12-21 20:39:05,958 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:39:05,973 - research.model_training_03 - INFO - Best model saved to artifacts\best_model.pkl
-2024-12-21 20:39:05,991 - research.prediction_05 - INFO - Starting predictions...
-2024-12-21 20:39:06,292 - research.prediction_05 - ERROR - Error in making predictions: could not convert string to float: 'Percy Jackson & the Olympians: The Lightning Thief'
-2024-12-21 20:39:06,292 - __main__ - ERROR - Pipeline execution failed: could not convert string to float: 'Percy Jackson & the Olympians: The Lightning Thief'
-2024-12-21 20:40:38,349 - research.data_ingestion_01 - INFO - Starting data ingestion...
-2024-12-21 20:40:39,673 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
-2024-12-21 20:40:39,673 - research.prepare_base_model_02 - INFO - Starting data preparation...
-2024-12-21 20:40:40,508 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
-2024-12-21 20:40:40,515 - research.model_training_03 - INFO - Starting model training...
-2024-12-21 20:40:40,621 - research.model_training_03 - INFO - LinearRegression Metrics:
-2024-12-21 20:40:40,621 - research.model_training_03 - INFO -   MSE: 82.72681239212882
-2024-12-21 20:40:40,621 - research.model_training_03 - INFO -   RMSE: 9.095428103840348
-2024-12-21 20:40:40,621 - research.model_training_03 - INFO -   MAE: 6.481955785659824
-2024-12-21 20:40:40,621 - research.model_training_03 - INFO -   R²: 0.797202444646212
-2024-12-21 20:40:40,622 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO - RidgeRegression Metrics:
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO -   MSE: 82.68697262554006
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO -   RMSE: 9.093237741615473
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO -   MAE: 6.488305258990725
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO -   R²: 0.7973001083544637
-2024-12-21 20:40:40,633 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:40,868 - research.model_training_03 - INFO - LassoRegression Metrics:
-2024-12-21 20:40:40,869 - research.model_training_03 - INFO -   MSE: 83.19657106376361
-2024-12-21 20:40:40,869 - research.model_training_03 - INFO -   RMSE: 9.121215437854959
-2024-12-21 20:40:40,869 - research.model_training_03 - INFO -   MAE: 6.522906918127623
-2024-12-21 20:40:40,870 - research.model_training_03 - INFO -   R²: 0.7960508722906592
-2024-12-21 20:40:40,870 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:40,963 - research.model_training_03 - INFO - DecisionTreeRegressor Metrics:
-2024-12-21 20:40:40,979 - research.model_training_03 - INFO -   MSE: 1.360697148745803
-2024-12-21 20:40:40,979 - research.model_training_03 - INFO -   RMSE: 1.1664892407329794
-2024-12-21 20:40:40,979 - research.model_training_03 - INFO -   MAE: 0.1546236519625108
-2024-12-21 20:40:40,979 - research.model_training_03 - INFO -   R²: 0.99666436978093
-2024-12-21 20:40:40,979 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:47,822 - research.model_training_03 - INFO - RandomForestRegressor Metrics:
-2024-12-21 20:40:47,822 - research.model_training_03 - INFO -   MSE: 1.0942822988484864
-2024-12-21 20:40:47,822 - research.model_training_03 - INFO -   RMSE: 1.0460794897370307
-2024-12-21 20:40:47,823 - research.model_training_03 - INFO -   MAE: 0.1273593245347817
-2024-12-21 20:40:47,823 - research.model_training_03 - INFO -   R²: 0.9973174625172128
-2024-12-21 20:40:47,823 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:50,425 - research.model_training_03 - INFO - GradientBoostingRegressor Metrics:
-2024-12-21 20:40:50,426 - research.model_training_03 - INFO -   MSE: 5.439734522392954
-2024-12-21 20:40:50,426 - research.model_training_03 - INFO -   RMSE: 2.3323238459512767
-2024-12-21 20:40:50,426 - research.model_training_03 - INFO -   MAE: 1.0159357796180464
-2024-12-21 20:40:50,426 - research.model_training_03 - INFO -   R²: 0.9866649659159373
-2024-12-21 20:40:50,437 - research.model_training_03 - INFO - ----------------------------------------
-2024-12-21 20:40:50,483 - research.model_training_03 - INFO - Best model saved to artifacts\best_model.pkl
-2024-12-21 20:40:50,486 - research.prediction_05 - INFO - Starting predictions...
-2024-12-21 20:40:50,617 - research.prediction_05 - ERROR - Error in making predictions: X has 20 features, but RandomForestRegressor is expecting 23 features as input.
-2024-12-21 20:40:50,617 - __main__ - ERROR - Pipeline execution failed: X has 20 features, but RandomForestRegressor is expecting 23 features as input.
+2024-12-21 21:02:39,808 - research.data_ingestion_01 - INFO - Starting data ingestion...
+2024-12-21 21:02:41,156 - research.data_ingestion_01 - INFO - Data saved to artifacts\data.csv
+2024-12-21 21:02:41,156 - research.prepare_base_model_02 - INFO - Starting data preparation...
+2024-12-21 21:02:41,991 - research.prepare_base_model_02 - INFO - Cleaned data saved to artifacts\cleaned_data.csv
+2024-12-21 21:02:41,999 - research.model_training_03 - INFO - Starting model training...
+2024-12-21 21:02:42,253 - research.model_training_03 - INFO - LinearRegression Metrics:
+2024-12-21 21:02:42,253 - research.model_training_03 - INFO -   MSE: 82.72681239212882
+2024-12-21 21:02:42,254 - research.model_training_03 - INFO -   RMSE: 9.095428103840348
+2024-12-21 21:02:42,254 - research.model_training_03 - INFO -   MAE: 6.481955785659824
+2024-12-21 21:02:42,254 - research.model_training_03 - INFO -   R²: 0.797202444646212
+2024-12-21 21:02:42,255 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO - RidgeRegression Metrics:
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO -   MSE: 82.68697262554006
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO -   RMSE: 9.093237741615473
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO -   MAE: 6.488305258990725
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO -   R²: 0.7973001083544637
+2024-12-21 21:02:42,272 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:42,511 - research.model_training_03 - INFO - LassoRegression Metrics:
+2024-12-21 21:02:42,511 - research.model_training_03 - INFO -   MSE: 83.19657106376361
+2024-12-21 21:02:42,512 - research.model_training_03 - INFO -   RMSE: 9.121215437854959
+2024-12-21 21:02:42,512 - research.model_training_03 - INFO -   MAE: 6.522906918127623
+2024-12-21 21:02:42,512 - research.model_training_03 - INFO -   R²: 0.7960508722906592
+2024-12-21 21:02:42,512 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:42,635 - research.model_training_03 - INFO - DecisionTreeRegressor Metrics:
+2024-12-21 21:02:42,636 - research.model_training_03 - INFO -   MSE: 1.360697148745803
+2024-12-21 21:02:42,636 - research.model_training_03 - INFO -   RMSE: 1.1664892407329794
+2024-12-21 21:02:42,637 - research.model_training_03 - INFO -   MAE: 0.1546236519625108
+2024-12-21 21:02:42,637 - research.model_training_03 - INFO -   R²: 0.99666436978093
+2024-12-21 21:02:42,637 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:49,545 - research.model_training_03 - INFO - RandomForestRegressor Metrics:
+2024-12-21 21:02:49,545 - research.model_training_03 - INFO -   MSE: 1.0942822988484864
+2024-12-21 21:02:49,546 - research.model_training_03 - INFO -   RMSE: 1.0460794897370307
+2024-12-21 21:02:49,546 - research.model_training_03 - INFO -   MAE: 0.1273593245347817
+2024-12-21 21:02:49,546 - research.model_training_03 - INFO -   R²: 0.9973174625172128
+2024-12-21 21:02:49,546 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:52,155 - research.model_training_03 - INFO - GradientBoostingRegressor Metrics:
+2024-12-21 21:02:52,155 - research.model_training_03 - INFO -   MSE: 5.442336139642807
+2024-12-21 21:02:52,155 - research.model_training_03 - INFO -   RMSE: 2.3328815099877676
+2024-12-21 21:02:52,155 - research.model_training_03 - INFO -   MAE: 1.0153033199773591
+2024-12-21 21:02:52,155 - research.model_training_03 - INFO -   R²: 0.9866585882784703
+2024-12-21 21:02:52,161 - research.model_training_03 - INFO - ----------------------------------------
+2024-12-21 21:02:52,203 - research.model_training_03 - INFO - Best model saved to artifacts\best_model.pkl
+2024-12-21 21:02:52,211 - research.prediction_05 - INFO - Starting predictions...
+2024-12-21 21:02:52,342 - research.prediction_05 - ERROR - Error in making predictions: X has 20 features, but RandomForestRegressor is expecting 23 features as input.
+2024-12-21 21:02:52,342 - __main__ - ERROR - Pipeline execution failed: X has 20 features, but RandomForestRegressor is expecting 23 features as input.
