@@ -13,7 +13,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from utils.logger import get_logger
 
-
 logger = get_logger(__name__)
 
 def model_training(input_file, artifacts_folder):
@@ -84,12 +83,19 @@ def model_training(input_file, artifacts_folder):
             best_model_metrics = results[best_model_name]
             best_model = models[best_model_name]
 
-            # Save the best model
+            # Save the best model and feature names
             model_output_file = os.path.join(artifacts_folder, "best_model.pkl")
+            feature_names_file = os.path.join(artifacts_folder, 'feature_names.pkl')
+            
+            feature_names = X.columns.tolist()  # Assuming X is your training dataframe
+
+            # Save feature names to file
+            joblib.dump(feature_names, feature_names_file)
+
+            # Save the best model
             joblib.dump(best_model, model_output_file)
             logger.info(f"Best model saved to {model_output_file}")
+            logger.info(f"Feature names saved to {feature_names_file}")
     except Exception as e:
         logger.error(f"Error in model training: {e}")
         raise
-
-
